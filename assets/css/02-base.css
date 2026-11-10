@@ -1,0 +1,76 @@
+/* 02-base.css — split from the original style.css */
+/* ---------- Base ---------- */
+*, *::before, *::after { box-sizing: border-box; }
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: calc(var(--nav-h) + 12px);
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font);
+  font-size: clamp(15px, 0.35vw + 14px, 17px);
+  line-height: 1.65;
+  color: var(--text);
+  background: var(--bg);
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  transition: background-color .4s ease, color .4s ease;
+}
+@supports (overflow: clip) { body { overflow-x: clip; } }
+
+img, svg { max-width: 100%; }
+a { color: var(--primary); text-decoration: none; }
+a:hover { text-decoration: underline; }
+h1, h2, h3, h4 { line-height: 1.2; margin: 0; overflow-wrap: break-word; }
+p { margin: 0 0 1rem; }
+ul, ol { margin: 0; padding: 0; }
+::selection { background: var(--primary); color: #fff; }
+
+:focus-visible {
+  outline: 3px solid var(--primary);
+  outline-offset: 3px;
+  border-radius: 6px;
+}
+
+.container {
+  width: 100%;
+  max-width: 1180px;
+  margin: 0 auto;
+  padding-left: max(var(--gutter), env(safe-area-inset-left));
+  padding-right: max(var(--gutter), env(safe-area-inset-right));
+}
+
+.accent {
+  background: var(--grad);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  animation: gradientShift 6s ease-in-out infinite;
+}
+@keyframes gradientShift {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
+
+.lead { font-size: clamp(1.02rem, 0.6vw + .9rem, 1.15rem); color: var(--text); }
+
+.placeholder {
+  color: var(--warn) !important;
+  font-style: italic;
+  border-bottom: 1px dashed currentColor;
+}
+
+/* ---------- Scroll progress ---------- */
+.scroll-progress { position: fixed; inset: 0 0 auto 0; height: 3px; z-index: 100; pointer-events: none; }
+.scroll-progress span {
+  display: block; height: 100%; width: 100%;
+  background: var(--grad);
+  transform-origin: 0 50%;
+  transform: scaleX(0);
+  box-shadow: 0 0 12px var(--primary-glow);
+}
+

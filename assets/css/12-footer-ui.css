@@ -1,0 +1,79 @@
+/* 12-footer-ui.css — split from the original style.css */
+/* ---------- Footer ---------- */
+.footer {
+  position: relative;
+  padding: 28px 0 calc(28px + env(safe-area-inset-bottom));
+  background: var(--bg);
+  font-size: .88rem;
+  color: var(--text-muted);
+}
+.footer::before {
+  content: "";
+  position: absolute;
+  inset: 0 0 auto 0;
+  height: 2px;
+  background: var(--grad);
+  background-size: 200% auto;
+  animation: gradientShift 6s ease-in-out infinite;
+}
+.footer__inner { display: flex; justify-content: space-between; align-items: center; gap: 12px; flex-wrap: wrap; }
+.footer p { margin: 0; }
+
+/* ---------- Floating UI ---------- */
+.to-top {
+  position: fixed;
+  right: max(18px, env(safe-area-inset-right));
+  bottom: max(18px, env(safe-area-inset-bottom));
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  border: 0;
+  color: #fff;
+  font-size: 1.2rem;
+  cursor: pointer;
+  background: var(--grad);
+  box-shadow: 0 12px 26px -10px var(--primary);
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(16px) scale(.8);
+  transition: opacity .35s ease, transform .4s var(--ease);
+  z-index: 40;
+}
+.to-top.is-visible { opacity: 1; pointer-events: auto; transform: none; }
+.to-top:hover { transform: translateY(-4px); }
+
+.toast {
+  position: fixed;
+  left: 50%;
+  bottom: 28px;
+  transform: translate(-50%, 20px);
+  max-width: calc(100vw - 32px);
+  padding: 10px 18px;
+  border-radius: 999px;
+  background: var(--purple-900);
+  color: #fff;
+  font-size: .9rem;
+  font-weight: 600;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity .3s ease, transform .4s var(--ease);
+  z-index: 60;
+}
+[data-theme="dark"] .toast { background: var(--primary); color: #140f24; }
+.toast.is-visible { opacity: 1; transform: translate(-50%, 0); }
+
+/* ---------- Scroll reveal ---------- */
+.reveal {
+  opacity: 0;
+  transform: translateY(32px);
+  transition: opacity .8s var(--ease), transform .8s var(--ease);
+}
+.reveal[data-anim="left"] { transform: translateX(-44px); }
+.reveal[data-anim="right"] { transform: translateX(44px); }
+.reveal[data-anim="zoom"] { transform: scale(.92) translateY(20px); }
+.reveal[data-anim="up"] { transform: translateY(24px); }
+.reveal.is-visible { opacity: 1; transform: none; }
+
+/* Without JS, show everything */
+.no-js .reveal, .no-js .hero-in { opacity: 1; transform: none; animation: none; }
+

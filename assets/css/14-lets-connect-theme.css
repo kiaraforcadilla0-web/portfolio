@@ -1,0 +1,36 @@
+/* 14-lets-connect-theme.css — split from the original style.css */
+/* =========================================================
+   Reusable "Let's Connect" section — themed to Kiara's purple palette
+   (lets-connect.css loads first; these follow the site's light/dark tokens)
+   ========================================================= */
+[data-theme] .lc {
+  --lc-accent: var(--primary);
+  --lc-accent-2: var(--primary-2);
+  --lc-on-accent: #ffffff;
+  --lc-card: var(--surface);
+  --lc-bg: var(--bg);
+  --lc-text: var(--text);
+  --lc-muted: var(--text-muted);
+  --lc-line: var(--border);
+  --lc-glow-1: rgba(192, 38, 211, .14);
+  --lc-glow-2: rgba(124, 58, 237, .16);
+  --lc-head: "Inter", system-ui, sans-serif;
+  --lc-body: "Inter", system-ui, sans-serif;
+  --lc-mono: "JetBrains Mono", ui-monospace, monospace;
+  background: var(--bg);
+}
+[data-theme="dark"] .lc { --lc-on-accent: #140f24; --lc-glow-1: rgba(232, 121, 249, .14); --lc-glow-2: rgba(167, 139, 250, .16); }
+[data-theme] .lc__eyebrow { color: var(--primary); }
+[data-theme] .lc__title { font-weight: 800; }
+[data-theme] .lc__title em { background-image: linear-gradient(110deg, var(--primary) 0%, var(--primary-3) 45%, var(--primary-2) 100%); }
+[data-theme] .lc__box { box-shadow: var(--shadow-lg); }
+[data-theme] .lc-copy:hover { color: #fff; }
+.lc__thanks {
+  margin: 26px 0 0;
+  font-weight: 600;
+  background: var(--grad);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+

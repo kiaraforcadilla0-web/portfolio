@@ -1,0 +1,194 @@
+/* =========================================================
+   18-motion.css — extra animation layer (pairs with assets/js/motion.js)
+   Everything here is decoration: content stays readable without it,
+   and prefers-reduced-motion turns it off.
+   ========================================================= */
+.sr-only {
+  position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px;
+  overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0;
+}
+.skip-link {
+  position: fixed; left: 16px; top: -60px; z-index: 300;
+  padding: 10px 16px; border-radius: 999px;
+  background: var(--grad); color: #fff; font-weight: 700;
+  transition: top .25s var(--ease);
+}
+.skip-link:focus { top: 12px; text-decoration: none; }
+
+/* ---------- intro curtain: a 1-second "test run" ---------- */
+.intro { display: none; }
+.intro-on .intro {
+  position: fixed; inset: 0; z-index: 400;
+  display: grid; place-items: center;
+  background: var(--bg);
+  cursor: pointer;
+  animation: introAuto .5s ease 2.6s forwards;          /* safety: hides itself even without JS */
+}
+.js.intro-on body { overflow: hidden; }
+.intro__box { display: grid; justify-items: center; gap: 14px; font-family: var(--mono); color: var(--text-muted); font-size: .85rem; }
+.intro__mark {
+  width: 64px; height: 64px; display: grid; place-items: center;
+  border-radius: 20px; background: var(--grad); color: #fff;
+  font: 800 1.35rem/1 var(--font); letter-spacing: -.5px;
+  box-shadow: 0 18px 40px -14px var(--primary);
+  animation: introPop .7s cubic-bezier(.2, 1.6, .4, 1) both;
+}
+.intro__bar { width: 160px; height: 4px; border-radius: 4px; background: var(--border); overflow: hidden; }
+.intro__bar i { display: block; height: 100%; background: var(--grad); transform-origin: left; animation: introFill 1.05s var(--ease) .1s both; }
+.intro__ok { color: var(--success); font-weight: 600; opacity: 0; animation: introOk .3s ease 1s forwards; }
+.intro-out .intro { animation: introLeave .55s var(--ease) forwards; }
+@keyframes introPop  { from { transform: scale(.4) rotate(-12deg); opacity: 0; } }
+@keyframes introFill { from { transform: scaleX(0); } }
+@keyframes introOk   { to { opacity: 1; } }
+@keyframes introLeave { to { clip-path: inset(0 0 100% 0); } }
+@keyframes introAuto  { to { opacity: 0; visibility: hidden; } }
+
+/* ---------- theme switch: circular reveal ---------- */
+::view-transition-old(root), ::view-transition-new(root) { animation: none; mix-blend-mode: normal; }
+
+/* ---------- hero name: letters wave on hover ---------- */
+.wave { display: inline-block; }
+.wave span { display: inline-block; }
+.hero__name:hover .wave span { animation: letterWave .6s var(--ease) calc(var(--li) * 45ms); }
+@keyframes letterWave { 40% { transform: translateY(-14%) rotate(-4deg); color: var(--primary); } }
+
+/* hero background drifts toward the mouse */
+.hero__bg .blob--1 { translate: calc(var(--px, 0) * -26px) calc(var(--py, 0) * -20px); }
+.hero__bg .blob--2 { translate: calc(var(--px, 0) * 30px) calc(var(--py, 0) * 22px); }
+.hero__bg .blob--3 { translate: calc(var(--px, 0) * -40px) calc(var(--py, 0) * 30px); }
+.hero__bg .grid-overlay { translate: calc(var(--px, 0) * 8px) calc(var(--py, 0) * 8px); }
+
+/* hero chips bob gently */
+.hero__chips li { animation: chipBob 4.5s ease-in-out infinite; }
+.hero__chips li:nth-child(2) { animation-delay: -1.1s; }
+.hero__chips li:nth-child(3) { animation-delay: -2.2s; }
+.hero__chips li:nth-child(4) { animation-delay: -3.3s; }
+@keyframes chipBob { 50% { translate: 0 -4px; } }
+
+/* run card: progress meter + a glow when every check passes */
+.run-card__meter { height: 3px; margin: 0 16px 12px; border-radius: 3px; background: var(--border); overflow: hidden; }
+.run-card--float .run-card__meter { margin: 0 12px 10px; }
+.run-card__meter i { display: block; height: 100%; background: linear-gradient(90deg, var(--primary), var(--success)); transform-origin: left; transform: scaleX(var(--p, 0)); transition: transform .5s var(--ease); }
+.run-card.is-passed { animation: passGlow 1.2s ease-out; }
+@keyframes passGlow { 0% { box-shadow: var(--shadow-lg), 0 0 0 0 rgba(22, 163, 122, .45); } 100% { box-shadow: var(--shadow-lg), 0 0 0 18px rgba(22, 163, 122, 0); } }
+
+/* marquee leans into fast scrolling */
+.marquee__track > span { display: inline-block; transform: skewX(var(--skew, 0deg)); }
+
+/* ---------- section headings: words rise out of a mask ---------- */
+.js .section__title .w { display: inline-block; overflow: hidden; vertical-align: bottom; padding-bottom: .06em; margin-bottom: -.06em; }
+.js .section__title .w > span { display: inline-block; translate: 0 110%; transition: translate .85s var(--ease) calc(var(--wi) * 70ms + .05s); }
+.js .section__head.is-visible .section__title .w > span { translate: 0 0; }
+.section__head { cursor: default; }
+.section__num { display: inline-block; min-width: 2ch; }
+
+/* ---------- living gradient borders ---------- */
+@property --ang { syntax: "<angle>"; inherits: false; initial-value: 0deg; }
+.about__facts,
+.objective {
+  border-color: transparent;
+  background:
+    linear-gradient(var(--surface), var(--surface)) padding-box,
+    conic-gradient(from var(--ang), var(--border) 0deg, var(--primary) 70deg, var(--primary-2) 120deg, var(--border) 190deg, var(--border) 360deg) border-box;
+  animation: spinBorder 9s linear infinite;
+}
+@keyframes spinBorder { to { --ang: 360deg; } }
+
+/* ---------- experience: markers light up as the line reaches them ---------- */
+.job__marker { transition: transform .4s var(--ease), background-color .4s ease, box-shadow .4s ease; }
+.job.is-reached .job__marker { background: var(--primary); box-shadow: 0 0 0 6px var(--primary-soft), 0 0 18px var(--primary-glow); }
+
+/* ---------- small hover delights ---------- */
+.doc:hover .doc__icon { animation: iconWiggle .6s var(--ease); }
+.card:hover .card__icon { animation: iconWiggle .6s var(--ease); }
+@keyframes iconWiggle { 25% { transform: rotate(-12deg) scale(1.15); } 60% { transform: rotate(8deg) scale(1.08); } }
+.doc__icon, .card__icon { display: inline-block; transform-origin: 50% 70%; }
+.honor { transition: transform .3s cubic-bezier(.2, 1.6, .4, 1); }
+.honor:hover { transform: translateY(-2px) scale(1.06); }
+.honor--gold { position: relative; overflow: hidden; }
+.honor--gold::after {
+  content: ""; position: absolute; inset: 0;
+  background: linear-gradient(105deg, transparent 35%, rgba(255, 255, 255, .7) 50%, transparent 65%);
+  translate: -120% 0; animation: shine 4s ease-in-out 1.5s infinite;
+}
+@keyframes shine { 0%, 70% { translate: -120% 0; } 100% { translate: 120% 0; } }
+.magnetic { transition: translate .25s var(--ease); }
+
+/* back-to-top shows reading progress as a ring */
+.to-top::before {
+  content: ""; position: absolute; inset: -5px; border-radius: 50%;
+  background: conic-gradient(var(--primary-2) calc(var(--p, 0) * 360deg), color-mix(in srgb, var(--primary) 18%, transparent) 0);
+  -webkit-mask: radial-gradient(farthest-side, transparent calc(100% - 3px), #000 calc(100% - 2.5px));
+          mask: radial-gradient(farthest-side, transparent calc(100% - 3px), #000 calc(100% - 2.5px));
+}
+
+/* ---------- side dot navigation (wide screens) ---------- */
+.dots {
+  position: fixed; right: max(14px, env(safe-area-inset-right)); top: 50%; z-index: 45;
+  display: grid; gap: 10px; padding: 10px 6px;
+  translate: 24px -50%; opacity: 0; pointer-events: none;
+  transition: opacity .4s ease, translate .5s var(--ease);
+}
+.dots.is-shown { translate: 0 -50%; opacity: 1; pointer-events: auto; }
+.dots a { position: relative; display: block; width: 10px; height: 10px; border-radius: 50%; background: color-mix(in srgb, var(--primary) 28%, transparent); transition: background-color .3s ease, scale .35s var(--ease); }
+.dots a:hover { scale: 1.35; background: var(--primary); text-decoration: none; }
+.dots a.is-active { background: var(--primary); scale: 1.25; box-shadow: 0 0 0 4px var(--primary-soft); }
+.dots__label {
+  position: absolute; right: 20px; top: 50%; translate: 6px -50%;
+  padding: 4px 10px; border-radius: 999px; white-space: nowrap;
+  font: 600 .74rem/1.4 var(--font); color: #fff; background: var(--purple-900);
+  opacity: 0; pointer-events: none; transition: opacity .25s ease, translate .3s var(--ease);
+}
+[data-theme="dark"] .dots__label { background: var(--primary); color: #140f24; }
+.dots a:hover .dots__label, .dots a:focus-visible .dots__label { opacity: 1; translate: 0 -50%; }
+@media (max-width: 1180px) { .dots { display: none; } }
+
+/* ---------- small context cursor (adds to the normal pointer) ---------- */
+.cursor-dot, .cursor-ring { position: fixed; left: 0; top: 0; z-index: 250; pointer-events: none; opacity: 0; transition: opacity .3s ease; }
+.has-cursor .cursor-dot, .has-cursor .cursor-ring { opacity: 1; }
+.cursor-dot { width: 6px; height: 6px; margin: -3px 0 0 -3px; border-radius: 50%; background: var(--primary-2); }
+.cursor-ring {
+  width: 26px; height: 26px; margin: -13px 0 0 -13px; border-radius: 50%;
+  border: 1.5px solid color-mix(in srgb, var(--primary) 55%, transparent);
+  display: grid; place-items: center;
+}
+.cursor-ring::before { content: ""; position: absolute; inset: 0; border-radius: inherit; transition: scale .3s var(--ease), background-color .3s ease; }
+.cursor-ring { transition: opacity .3s ease, width .3s var(--ease), height .3s var(--ease), margin .3s var(--ease), border-color .3s ease, background-color .3s ease; }
+.cursor-ring.is-hover { width: 40px; height: 40px; margin: -20px 0 0 -20px; border-color: var(--primary); background: var(--primary-soft); }
+.cursor-ring.is-text { width: 4px; height: 26px; margin: -13px 0 0 -2px; border-radius: 3px; border-color: transparent; background: color-mix(in srgb, var(--primary) 35%, transparent); }
+.cursor-ring.has-label { width: 50px; height: 50px; margin: -25px 0 0 -25px; border-color: transparent; background: var(--grad); }
+.cursor-ring.is-down { width: 20px; height: 20px; margin: -10px 0 0 -10px; }
+.cursor-ring__label { font: 700 .66rem/1 var(--font); color: #fff; opacity: 0; transition: opacity .2s ease; }
+.cursor-ring.has-label .cursor-ring__label { opacity: 1; }
+
+/* ---------- scroll-driven effects (modern browsers only) ---------- */
+@supports (animation-timeline: view()) {
+  @media (prefers-reduced-motion: no-preference) {
+    /* hero gently recedes as you scroll past it */
+    .hero__grid { animation: heroRecede linear both; animation-timeline: view(); animation-range: exit 0% exit 100%; }
+    @keyframes heroRecede { to { opacity: .2; scale: .94; translate: 0 70px; } }
+
+    /* cards settle into place as they enter */
+    .card-grid > .card, .card-grid > .project, .doc-grid > .doc {
+      animation: settle linear both; animation-timeline: view(); animation-range: entry 0% entry 70%;
+    }
+    @keyframes settle { from { scale: .94; } }
+
+    /* the photo inside the arch drifts slightly */
+    .portrait__frame { overflow: hidden; }
+    .portrait__frame img { animation: drift linear both; animation-timeline: view(); animation-range: cover 40% cover 100%; }
+    @keyframes drift { to { scale: 1.06; translate: 0 3%; } }
+  }
+}
+
+/* ---------- calm mode & print ---------- */
+@media (prefers-reduced-motion: reduce) {
+  .intro-on .intro { display: none; }
+  .intro-on body { overflow: auto; }
+  .about__facts, .objective, .honor--gold::after, .hero__chips li { animation: none; }
+  .hero__bg * { translate: none; }
+}
+@media print {
+  .dots, .cursor-dot, .cursor-ring, .intro, .skip-link { display: none !important; }
+  .section__title .w > span { translate: none !important; }
+}

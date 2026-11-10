@@ -1,0 +1,63 @@
+/* 01-tokens.css — split from the original style.css */
+/* =========================================================
+   Kiara Forcadilla — Portfolio Styles (Purple theme)
+   ========================================================= */
+
+/* ---------- Theme tokens ---------- */
+:root {
+  --bg: #faf7ff;
+  --bg-alt: #f3ecff;
+  --surface: #ffffff;
+  --surface-2: #f7f2ff;
+  --text: #1e1433;
+  --text-muted: #625878;
+  --border: #e6dcf7;
+
+  --purple-900: #2e1065;
+  --purple-700: #6d28d9;
+  --primary: #7c3aed;     /* violet */
+  --primary-2: #c026d3;   /* fuchsia */
+  --primary-3: #a78bfa;   /* lavender */
+  --primary-soft: rgba(124, 58, 237, 0.10);
+  --primary-glow: rgba(168, 85, 247, 0.35);
+  --grad: linear-gradient(120deg, #6d28d9 0%, #9333ea 45%, #c026d3 100%);
+
+  --success: #16a37a;
+  --success-soft: rgba(22, 163, 122, 0.12);
+  --warn: #c2770c;
+
+  --shadow: 0 10px 30px -14px rgba(76, 29, 149, 0.28);
+  --shadow-lg: 0 28px 60px -24px rgba(76, 29, 149, 0.42);
+  --radius: 18px;
+  --radius-sm: 12px;
+  --nav-h: 68px;
+  --gutter: clamp(16px, 4vw, 32px);
+  --section-y: clamp(64px, 10vw, 112px);
+  --font: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --mono: "JetBrains Mono", ui-monospace, Consolas, monospace;
+  --ease: cubic-bezier(.22, 1, .36, 1);
+  color-scheme: light;
+}
+
+[data-theme="dark"] {
+  --bg: #0e0a1a;
+  --bg-alt: #140f24;
+  --surface: #1b1530;
+  --surface-2: #221a3b;
+  --text: #f1ebff;
+  --text-muted: #b2a6cf;
+  --border: #322750;
+  --primary: #a78bfa;
+  --primary-2: #e879f9;
+  --primary-3: #c4b5fd;
+  --primary-soft: rgba(167, 139, 250, 0.14);
+  --primary-glow: rgba(192, 132, 252, 0.35);
+  --grad: linear-gradient(120deg, #8b5cf6 0%, #a855f7 45%, #e879f9 100%);
+  --success: #34d399;
+  --success-soft: rgba(52, 211, 153, 0.14);
+  --warn: #fbbf24;
+  --shadow: 0 10px 30px -12px rgba(0, 0, 0, 0.65);
+  --shadow-lg: 0 28px 60px -22px rgba(0, 0, 0, 0.75);
+  color-scheme: dark;
+}
+

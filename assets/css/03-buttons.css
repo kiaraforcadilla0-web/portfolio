@@ -1,0 +1,82 @@
+/* 03-buttons.css — split from the original style.css */
+/* ---------- Buttons ---------- */
+.btn {
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 13px 24px;
+  min-height: 46px;
+  border-radius: 999px;
+  font-weight: 600;
+  font-size: .95rem;
+  border: 2px solid transparent;
+  cursor: pointer;
+  transition: transform .3s var(--ease), box-shadow .3s var(--ease), border-color .3s ease, color .3s ease;
+}
+.btn:hover { text-decoration: none; transform: translateY(-3px); }
+.btn:active { transform: translateY(-1px) scale(.98); }
+
+/* shine sweep */
+.btn::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: linear-gradient(110deg, transparent 30%, rgba(255,255,255,.45) 50%, transparent 70%);
+  transform: translateX(-120%);
+  transition: transform .7s var(--ease);
+}
+.btn:hover::after { transform: translateX(120%); }
+
+.btn--primary {
+  background: var(--grad);
+  background-size: 200% auto;
+  color: #fff;
+  box-shadow: 0 12px 28px -12px var(--primary);
+  animation: gradientShift 6s ease-in-out infinite;
+}
+.btn--primary:hover { box-shadow: 0 18px 36px -12px var(--primary); color: #fff; }
+.btn--ghost {
+  border-color: var(--border);
+  color: var(--text);
+  background: var(--surface);
+}
+.btn--ghost:hover { border-color: var(--primary); color: var(--primary); }
+.btn--block { width: 100%; margin-top: 20px; }
+
+/* Ripple (added via JS) */
+.ripple {
+  position: absolute;
+  border-radius: 50%;
+  background: rgba(255,255,255,.5);
+  transform: scale(0);
+  animation: ripple .6s ease-out forwards;
+  pointer-events: none;
+  z-index: -1;
+}
+@keyframes ripple { to { transform: scale(4); opacity: 0; } }
+
+.icon-btn {
+  width: 42px;
+  height: 42px;
+  border-radius: 12px;
+  display: inline-grid;
+  place-items: center;
+  border: 1px solid var(--border);
+  background: var(--surface);
+  color: var(--text);
+  cursor: pointer;
+  transition: border-color .2s ease, color .2s ease, transform .3s var(--ease);
+}
+.icon-btn:hover { border-color: var(--primary); color: var(--primary); transform: rotate(-8deg) scale(1.05); }
+
+.icon-moon { display: none; }
+[data-theme="dark"] .icon-sun { display: none; }
+[data-theme="dark"] .icon-moon { display: block; }
+#themeToggle svg { animation: popIn .45s var(--ease); }
+@keyframes popIn { from { transform: rotate(-90deg) scale(.4); opacity: 0; } to { transform: none; opacity: 1; } }
+

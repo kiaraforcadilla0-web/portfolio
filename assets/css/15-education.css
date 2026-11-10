@@ -1,0 +1,20 @@
+/* 15-education.css — split from the original style.css */
+/* ---------- Education fact (About) ---------- */
+.fact--edu { gap: 3px; }
+.fact__sub { font-size: .85rem; color: var(--text-muted); line-height: 1.4; }
+.honors { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 8px; }
+.honor {
+  padding: 3px 10px;
+  border-radius: 999px;
+  font-size: .74rem;
+  font-weight: 700;
+  color: var(--primary);
+  background: var(--primary-soft);
+  border: 1px solid color-mix(in srgb, var(--primary) 25%, transparent);
+}
+.honor--gold { color: #b45309; background: rgba(245, 158, 11, .14); border-color: rgba(245, 158, 11, .35); }
+[data-theme="dark"] .honor--gold { color: #fbbf24; }
+
+/* Prevent sideways scrolling on phones: cards that slide in from the side
+   start partly off-screen; clip that at the page root as well as the body. */
+@supports (overflow: clip) { html { overflow-x: clip; } }
