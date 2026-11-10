@@ -1,0 +1,921 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <meta name="theme-color" content="#7c3aed" />
+  <title>Kiara Forcadilla | QA Engineer</title>
+  <meta name="description" content="Portfolio of Kiara Forcadilla, QA Engineer specializing in Manual and Automation Testing — test cases, regression and sanity testing, AHQ no-code automation and root cause analysis." />
+  <meta name="author" content="Kiara Forcadilla" />
+  <meta name="color-scheme" content="light dark" />
+  <!-- link previews (Messenger, LinkedIn, Slack, X…) -->
+  <meta property="og:type" content="profile" />
+  <meta property="og:title" content="Kiara Forcadilla | QA Engineer" />
+  <meta property="og:description" content="QA Engineer — Manual & Automation Testing. Test cases, regression & sanity testing, AHQ no-code automation and root cause analysis." />
+  <meta property="og:image" content="assets/img/og-image.jpg" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Kiara Forcadilla",
+    "jobTitle": "QA Engineer",
+    "worksFor": { "@type": "Organization", "name": "AutomationHQ (AHQ)" },
+    "alumniOf": { "@type": "CollegeOrUniversity", "name": "Bulacan State University" },
+    "email": "mailto:Kiaraforcadilla0@gmail.com",
+    "sameAs": ["https://www.linkedin.com/in/kiara-forcadilla-329b88376/", "https://github.com/kiaraforcadilla-automation13"]
+  }
+  </script>
+  <script>
+    /* Before first paint: saved theme (no light/dark flash) + intro curtain once per session */
+    (function () {
+      var d = document.documentElement, t = null;
+      d.className = "no-js";
+      try { t = localStorage.getItem("kf-theme"); } catch (e) {}
+      if (!t) t = window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+      d.setAttribute("data-theme", t);
+      var seen = false;
+      try { seen = sessionStorage.getItem("kf-intro") === "1"; } catch (e) {}
+      if (!seen && !window.matchMedia("(prefers-reduced-motion: reduce)").matches) d.classList.add("intro-on");
+    })();
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet" />
+  <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+  <link rel="icon" type="image/png" sizes="64x64" href="favicon.png" />
+  <link rel="apple-touch-icon" href="apple-touch-icon.png" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.0/css/all.min.css" integrity="sha512-10/jx2EXwxxWqCLX/hHth/vu2KY3jCF70dCQB8TSgNjbCVAC/8vai53GfMDrO2Emgwccf2pJqxct9ehpzG+MTw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="preload" as="image" href="assets/img/kiara-portrait.jpg" fetchpriority="high" />
+  <!-- styles: one file per concern, loaded in this order (see README.md) -->
+  <link rel="stylesheet" href="assets/css/01-tokens.css" />
+  <link rel="stylesheet" href="assets/css/02-base.css" />
+  <link rel="stylesheet" href="assets/css/03-buttons.css" />
+  <link rel="stylesheet" href="assets/css/04-nav.css" />
+  <link rel="stylesheet" href="assets/css/05-hero.css" />
+  <link rel="stylesheet" href="assets/css/06-portrait-marquee.css" />
+  <link rel="stylesheet" href="assets/css/07-sections-about.css" />
+  <link rel="stylesheet" href="assets/css/08-cards.css" />
+  <link rel="stylesheet" href="assets/css/09-experience.css" />
+  <link rel="stylesheet" href="assets/css/10-skills-projects.css" />
+  <link rel="stylesheet" href="assets/css/11-content.css" />
+  <link rel="stylesheet" href="assets/css/12-footer-ui.css" />
+  <link rel="stylesheet" href="assets/css/13-lets-connect.css" />
+  <link rel="stylesheet" href="assets/css/14-lets-connect-theme.css" />
+  <link rel="stylesheet" href="assets/css/15-education.css" />
+  <link rel="stylesheet" href="assets/css/16-fun-facts.css" />
+  <link rel="stylesheet" href="assets/css/17-responsive.css" />
+  <link rel="stylesheet" href="assets/css/18-motion.css" />
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <!-- 1-second intro (once per visit; click or any key skips it) -->
+  <div class="intro" aria-hidden="true">
+    <div class="intro__box">
+      <span class="intro__mark">KF</span>
+      <span>running kiara.portfolio.spec…</span>
+      <span class="intro__bar"><i></i></span>
+      <span class="intro__ok">✓ all checks passed</span>
+    </div>
+  </div>
+
+  <!-- Scroll progress bar -->
+  <div class="scroll-progress" aria-hidden="true"><span id="scrollProgress"></span></div>
+
+  <!-- ================= NAVIGATION ================= -->
+  <header class="nav" id="top">
+    <div class="container nav__inner">
+      <a href="#home" class="nav__logo" aria-label="Kiara Forcadilla - Home">
+        <span class="nav__logo-mark">KF</span>
+        <span class="nav__logo-text">Kiara Forcadilla</span>
+      </a>
+
+      <nav class="nav__menu" id="navMenu" aria-label="Primary">
+        <a href="#about" class="nav__link">About</a>
+        <a href="#experience" class="nav__link">Experience</a>
+        <a href="#skills" class="nav__link">Skills</a>
+        <a href="#projects" class="nav__link">Projects</a>
+        <a href="#knowledge" class="nav__link">Knowledge Sharing</a>
+        <a href="#contact" class="nav__link">Contact</a>
+        <span class="nav__indicator" id="navIndicator" aria-hidden="true"></span>
+      </nav>
+
+      <div class="nav__actions">
+        <button class="icon-btn" id="themeToggle" aria-label="Toggle dark mode" title="Toggle theme">
+          <svg class="icon-sun" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
+          <svg class="icon-moon" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>
+        </button>
+        <button class="icon-btn nav__toggle" id="navToggle" aria-label="Open menu" aria-expanded="false" aria-controls="navMenu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main id="main">
+
+    <!-- ================= HERO ================= -->
+    <section class="hero" id="home">
+      <!-- Animated background -->
+      <div class="hero__bg" aria-hidden="true">
+        <span class="blob blob--1"></span>
+        <span class="blob blob--2"></span>
+        <span class="blob blob--3"></span>
+        <span class="grid-overlay"></span>
+        <span class="particle" style="--x:8%;--d:9s;--delay:0s"></span>
+        <span class="particle" style="--x:22%;--d:12s;--delay:2s"></span>
+        <span class="particle" style="--x:38%;--d:10s;--delay:4s"></span>
+        <span class="particle" style="--x:55%;--d:14s;--delay:1s"></span>
+        <span class="particle" style="--x:70%;--d:11s;--delay:3s"></span>
+        <span class="particle" style="--x:84%;--d:13s;--delay:5s"></span>
+        <span class="particle" style="--x:94%;--d:9s;--delay:6s"></span>
+      </div>
+
+      <div class="container hero__grid">
+        <div class="hero__content">
+          <p class="eyebrow hero-in" style="--i:0"><span class="eyebrow__dot"></span>Professional Portfolio</p>
+          <h1 class="hero__name hero-in" style="--i:1">Kiara <span class="accent">Forcadilla</span></h1>
+          <p class="hero__title hero-in" style="--i:2">QA Engineer &nbsp;|&nbsp; Manual &amp; Automation Testing</p>
+          <p class="hero__tagline hero-in" style="--i:3">
+            I make sure software works the way it should, through careful
+            <span class="typed" id="typed">manual testing.</span><span class="caret" aria-hidden="true"></span>
+          </p>
+          <div class="hero__cta hero-in" style="--i:4">
+            <a href="#contact" class="btn btn--primary"><span>Let's Connect</span></a>
+            <a href="#projects" class="btn btn--ghost"><span>View Projects</span></a>
+          </div>
+          <ul class="hero__chips hero-in" style="--i:5">
+            <li>Manual Testing</li>
+            <li>No-Code Automation (AHQ)</li>
+            <li>Root Cause Analysis</li>
+            <li>Agile / Scrum</li>
+          </ul>
+        </div>
+
+        <!-- Portrait + floating "test run" card -->
+        <div class="hero__visual hero-in" style="--i:3">
+          <figure class="portrait tilt">
+            <div class="portrait__frame">
+              <img src="assets/img/kiara-portrait.jpg"alt="Portrait of Kiara Forcadilla" width="900" height="1200" fetchpriority="high" decoding="async" />
+            </div>
+          </figure>
+
+          <span class="float-badge float-badge--top" aria-hidden="true">
+            <span class="float-badge__icon">✓</span>
+            <span class="float-badge__text"><b>QA Engineer</b><small>AutomationHQ</small></span>
+          </span>
+          <span class="float-badge float-badge--side" aria-hidden="true">
+            <span class="float-badge__icon">⚙</span>
+            <span class="float-badge__text"><b>Manual + Automation</b><small>Testing</small></span>
+          </span>
+
+          <div class="run-card run-card--float" aria-hidden="true">
+            <div class="run-card__bar">
+              <span class="dot dot--r"></span><span class="dot dot--y"></span><span class="dot dot--g"></span>
+              <span class="run-card__file">kiara.portfolio.spec</span>
+            </div>
+            <ul class="run-card__list" id="runList">
+              <li data-step>Verify attention to detail</li>
+              <li data-step>Execute regression &amp; sanity suites</li>
+              <li data-step>Analyze failed runs &amp; find root cause</li>
+              <li data-step>Write clear, reproducible bug tickets</li>
+              <li data-step>Retest &amp; verify fixes</li>
+              <li data-step>Share knowledge with the team</li>
+            </ul>
+            <div class="run-card__meter"><i></i></div>
+            <div class="run-card__summary" id="runSummary">
+              <span class="badge-pass">PASSED</span>
+              <span>6 / 6 checks · Quality assured</span>
+            </div>
+          </div>
+          <span class="orbit orbit--1" aria-hidden="true"></span>
+          <span class="orbit orbit--2" aria-hidden="true"></span>
+        </div>
+      </div>
+
+      <a href="#about" class="scroll-cue" aria-label="Scroll to About section">
+        <span class="scroll-cue__mouse"><span></span></span>
+      </a>
+    </section>
+
+    <!-- Moving skills ribbon -->
+    <div class="marquee" aria-hidden="true">
+      <div class="marquee__track">
+        <span>Manual Testing</span><span>✦</span><span>Regression Testing</span><span>✦</span>
+        <span>Sanity Testing</span><span>✦</span><span>Test Automation</span><span>✦</span>
+        <span>Root Cause Analysis</span><span>✦</span><span>Bug Reporting</span><span>✦</span>
+        <span>SDLC · STLC</span><span>✦</span><span>Agile · Scrum</span><span>✦</span>
+        <span>GitHub</span><span>✦</span><span>QA Knowledge Sharing</span><span>✦</span>
+      </div>
+    </div>
+
+    <!-- ================= 1. ABOUT ================= -->
+    <section class="section" id="about">
+      <div class="container">
+        <header class="section__head reveal">
+          <span class="section__num">01</span>
+          <h2 class="section__title">About Me</h2>
+        </header>
+
+        <div class="about__grid">
+          <div class="about__text reveal" data-anim="left">
+            <p class="lead">
+              I am a detail-oriented and dedicated QA Engineer with hands-on experience in Manual Testing,
+              Test Automation, Test Case Development and Execution, Regression Testing, Sanity Testing,
+              and Defect Management.
+            </p>
+            <p>
+              I have practical knowledge of the Software Development Life Cycle (SDLC) and Software Testing
+              Life Cycle (STLC), as well as experience working in an Agile and Scrum environment.
+            </p>
+            <p>
+              My experience includes identifying and documenting software defects, creating clear and detailed
+              issue tickets, investigating failed test executions, analyzing root causes, and collaborating with
+              developers and team members to ensure software quality.
+            </p>
+            <p>
+              I also have hands-on experience creating and executing automated test scripts using AHQ's No-Code
+              Automation Platform, monitoring test executions, and assisting with Staging Environment deployments
+              using GitHub.
+            </p>
+            <p>
+              Aside from testing activities, I have experience conducting website and application demonstrations,
+              presenting system functionalities, and facilitating QA learning sessions and peer knowledge-sharing
+              activities to help team members understand software testing concepts and best practices.
+            </p>
+            <p>
+              In addition to my QA background, I have experience as a Virtual Assistant and Student Assistant,
+              where I developed skills in administrative support, email management, data entry, organization,
+              communication, and multitasking.
+            </p>
+            <p>
+              I also have a technical background in web development, with knowledge of HTML, CSS, JavaScript,
+              PHP, and MySQL. I independently developed and tested an Event Attendance System as my academic
+              thesis project.
+            </p>
+            <p>
+              I am passionate about continuous learning, problem-solving, teamwork, and delivering reliable,
+              efficient, and high-quality software applications.
+            </p>
+          </div>
+
+          <aside class="about__facts reveal" data-anim="right">
+            <div class="fact">
+              <span class="fact__label">Role</span>
+              <span class="fact__value">QA Engineer</span>
+            </div>
+            <div class="fact">
+              <span class="fact__label">Focus</span>
+              <span class="fact__value">Manual &amp; Automation Testing</span>
+            </div>
+            <div class="fact">
+              <span class="fact__label">Company</span>
+              <span class="fact__value">AutomationHQ (AHQ)</span>
+            </div>
+            <div class="fact fact--edu">
+              <span class="fact__label">Education</span>
+              <span class="fact__value">Bachelor of Industrial Technology</span>
+              <span class="fact__sub">Major in Computer Technology · Bulacan State University</span>
+              <span class="fact__sub">August 2022 – June 2026</span>
+              <span class="honors">
+                <span class="honor honor--gold">🎓 Magna Cum Laude</span>
+                <span class="honor">⭐ Dean's Lister</span>
+              </span>
+            </div>
+            <div class="fact">
+              <span class="fact__label">Methodology</span>
+              <span class="fact__value">SDLC · STLC · Agile · Scrum</span>
+            </div>
+            <div class="fact">
+              <span class="fact__label">Web Stack</span>
+              <span class="fact__value">HTML · CSS · JS · PHP · MySQL</span>
+            </div>
+            <div class="fact">
+              <span class="fact__label">Location</span>
+              <span class="fact__value">Philippines</span>
+            </div>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= 2. CORE COMPETENCIES ================= -->
+    <section class="section section--alt" id="competencies">
+      <div class="container">
+        <header class="section__head reveal">
+          <span class="section__num">02</span>
+          <h2 class="section__title">Core Competencies</h2>
+        </header>
+
+        <div class="card-grid card-grid--3">
+          <article class="card reveal" data-anim="zoom">
+            <div class="card__icon">🔍</div>
+            <h3 class="card__title">Quality Assurance &amp; Manual Testing</h3>
+            <ul class="check-list">
+              <li>Manual Testing</li>
+              <li>Functional Testing</li>
+              <li>Sanity Testing</li>
+              <li>Regression Testing</li>
+              <li>Test Case Creation and Execution</li>
+              <li>Test Scenario Development</li>
+              <li>Test Result Documentation</li>
+              <li>Defect Identification and Reporting</li>
+              <li>Defect Retesting and Verification</li>
+            </ul>
+          </article>
+
+          <article class="card reveal" data-anim="zoom">
+            <div class="card__icon">⚙️</div>
+            <h3 class="card__title">Test Automation</h3>
+            <ul class="check-list">
+              <li>No-Code Test Automation</li>
+              <li>Automated Test Script Creation using AHQ</li>
+              <li>Test Script Execution and Monitoring</li>
+              <li>Test Script Maintenance</li>
+              <li>Automated Test Result Analysis</li>
+              <li>Failed Test Execution Investigation</li>
+              <li>Root Cause Analysis (RCA)</li>
+            </ul>
+          </article>
+
+          <article class="card reveal" data-anim="zoom">
+            <div class="card__icon">🐞</div>
+            <h3 class="card__title">Defect &amp; Issue Management</h3>
+            <ul class="check-list">
+              <li>Clear and Detailed Issue Ticket Creation</li>
+              <li>Bug Reporting and Documentation</li>
+              <li>Writing Steps to Reproduce</li>
+              <li>Expected and Actual Result Documentation</li>
+              <li>Defect Investigation</li>
+              <li>Root Cause Identification</li>
+              <li>Communicating Findings to Developers</li>
+              <li>Fix Verification and Retesting</li>
+            </ul>
+          </article>
+
+          <article class="card reveal" data-anim="zoom">
+            <div class="card__icon">🔄</div>
+            <h3 class="card__title">Software Development Methodologies</h3>
+            <ul class="check-list">
+              <li>Software Development Life Cycle (SDLC)</li>
+              <li>Software Testing Life Cycle (STLC)</li>
+              <li>Agile Methodology</li>
+              <li>Scrum Framework</li>
+              <li>Continuous Testing</li>
+              <li>Team Collaboration</li>
+            </ul>
+          </article>
+
+          <article class="card reveal" data-anim="zoom">
+            <div class="card__icon">🚀</div>
+            <h3 class="card__title">Deployment &amp; Version Control</h3>
+            <ul class="check-list">
+              <li>GitHub</li>
+              <li>Staging Environment Deployment</li>
+              <li>Basic Git Workflow</li>
+              <li>Deployment Verification</li>
+            </ul>
+          </article>
+
+          <article class="card reveal" data-anim="zoom">
+            <div class="card__icon">🎤</div>
+            <h3 class="card__title">Technical Presentation &amp; Knowledge Sharing</h3>
+            <ul class="check-list">
+              <li>Website and Application Demonstration</li>
+              <li>Technical Presentations</li>
+              <li>QA Learning Sessions</li>
+              <li>Peer Knowledge Sharing</li>
+              <li>Explaining Software Testing Concepts</li>
+              <li>Presenting Application Functionalities</li>
+              <li>Communicating Technical Findings</li>
+            </ul>
+          </article>
+
+          <article class="card reveal" data-anim="zoom">
+            <div class="card__icon">🗂️</div>
+            <h3 class="card__title">Administrative &amp; Virtual Assistance</h3>
+            <ul class="check-list">
+              <li>Email Management</li>
+              <li>Data Entry</li>
+              <li>Online Ticket Purchasing</li>
+              <li>Administrative Support</li>
+              <li>Document Organization</li>
+              <li>Task Management</li>
+              <li>Record Keeping</li>
+              <li>Time Management</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= 3. EXPERIENCE ================= -->
+    <section class="section" id="experience">
+      <div class="container">
+        <header class="section__head reveal">
+          <span class="section__num">03</span>
+          <h2 class="section__title">Professional Experience</h2>
+        </header>
+
+        <div class="timeline" id="timeline">
+
+          <!-- QA Engineer -->
+          <article class="job reveal" data-anim="left">
+            <div class="job__marker"></div>
+            <div class="job__body">
+              <div class="job__head">
+                <div>
+                  <h3 class="job__title">QA Engineer / QA Tester</h3>
+                  <p class="job__company">AutomationHQ (AHQ)</p>
+                  <p class="job__location"><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s-7-6.2-7-11.5A7 7 0 0 1 19 9.5C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg>Ontario, Canada</p>
+                </div>
+                <span class="job__period job__period--current"><span class="live-dot" aria-hidden="true"></span>September 2025 – Present</span>
+              </div>
+
+              <div class="accordion">
+                <details open>
+                  <summary>Manual Testing and Quality Assurance</summary>
+                  <ul class="bullet-list">
+                    <li>Created, reviewed, and executed test cases to verify application functionality and ensure that system requirements were met.</li>
+                    <li>Performed manual testing, sanity testing, and regression testing to identify defects and validate application stability.</li>
+                    <li>Prepared test scenarios and documented testing results.</li>
+                    <li>Performed retesting to verify whether reported defects had been properly resolved.</li>
+                  </ul>
+                </details>
+
+                <details>
+                  <summary>Test Automation</summary>
+                  <ul class="bullet-list">
+                    <li>Created and executed automated test scripts using AHQ's No-Code Automation Platform.</li>
+                    <li>Prepared test scripts for different application modules and functionalities.</li>
+                    <li>Monitored automated test executions and analyzed results to identify failures and unexpected behavior.</li>
+                    <li>Investigated failed test scripts, identified possible root causes, and shared findings with the team.</li>
+                    <li>Maintained and updated test scripts to ensure their accuracy and reliability.</li>
+                  </ul>
+                </details>
+
+                <details>
+                  <summary>Defect Management and Collaboration</summary>
+                  <ul class="bullet-list">
+                    <li>Identified, documented, and reported software issues through clear and detailed issue tickets.</li>
+                    <li>Provided steps to reproduce, expected results, and actual results when reporting defects.</li>
+                    <li>Investigated execution failures and performed root cause analysis.</li>
+                    <li>Collaborated with developers and QA team members to discuss defects, testing progress, and possible solutions.</li>
+                    <li>Communicated testing findings, blockers, and issues to the team.</li>
+                  </ul>
+                </details>
+
+                <details>
+                  <summary>Deployment and Development Process</summary>
+                  <ul class="bullet-list">
+                    <li>Assisted in deploying applications to the Staging Environment using GitHub.</li>
+                    <li>Verified application functionality after deployments and updates.</li>
+                    <li>Participated in testing activities throughout the SDLC and STLC.</li>
+                    <li>Worked within an Agile and Scrum environment, collaborating with team members throughout development and testing activities.</li>
+                  </ul>
+                </details>
+
+                <details>
+                  <summary>Website Demonstration and QA Knowledge Sharing</summary>
+                  <ul class="bullet-list">
+                    <li>Conducted website and application demonstrations to showcase system functionalities, features, and workflows.</li>
+                    <li>Presented application modules and explained their functionalities to team members.</li>
+                    <li>Prepared and delivered QA learning sessions to share knowledge about software testing concepts, methodologies, and best practices.</li>
+                    <li>Facilitated peer learning and knowledge-sharing discussions about different QA topics.</li>
+                    <li>Explained technical concepts in a clear and understandable manner.</li>
+                    <li>Participated in technical presentations and team learning activities.</li>
+                  </ul>
+                </details>
+              </div>
+            </div>
+          </article>
+
+          <!-- Virtual Assistant -->
+          <article class="job reveal" data-anim="left">
+            <div class="job__marker"></div>
+            <div class="job__body">
+              <div class="job__head">
+                <div>
+                  <h3 class="job__title">Virtual Assistant</h3>
+                  <p class="job__company">Vwizzard</p>
+                  <p class="job__location"><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s-7-6.2-7-11.5A7 7 0 0 1 19 9.5C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg>Malolos, Bulacan</p>
+                </div>
+                <span class="job__period">November 2024 – January 2025</span>
+              </div>
+              <ul class="bullet-list">
+                <li>Provided virtual and administrative support for assigned tasks.</li>
+                <li>Handled email-related tasks and correspondence.</li>
+                <li>Performed data entry and maintained organized records.</li>
+                <li>Assisted with online ticket purchasing and related transactions.</li>
+                <li>Managed assigned tasks while maintaining accuracy and efficiency.</li>
+                <li>Organized information and completed tasks within required deadlines.</li>
+                <li>Demonstrated attention to detail, communication, and time management.</li>
+              </ul>
+            </div>
+          </article>
+
+          <!-- Student Assistant -->
+          <article class="job reveal" data-anim="left">
+            <div class="job__marker"></div>
+            <div class="job__body">
+              <div class="job__head">
+                <div>
+                  <h3 class="job__title">Student Assistant</h3>
+                  <p class="job__company">Bulacan State University</p>
+                  <p class="job__location"><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s-7-6.2-7-11.5A7 7 0 0 1 19 9.5C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg>Malolos, Bulacan</p>
+                </div>
+                <span class="job__period">January 2024 – April 2024</span>
+              </div>
+              <ul class="bullet-list">
+                <li>Provided administrative and clerical assistance.</li>
+                <li>Assisted with organizing documents, records, and school-related files.</li>
+                <li>Supported daily office operations and assigned activities.</li>
+                <li>Communicated and coordinated with staff and other students.</li>
+                <li>Managed multiple responsibilities while maintaining accuracy and productivity.</li>
+                <li>Demonstrated professionalism, teamwork, organization, and responsibility.</li>
+              </ul>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= 4. TECHNICAL SKILLS ================= -->
+    <section class="section section--alt" id="skills">
+      <div class="container">
+        <header class="section__head reveal">
+          <span class="section__num">04</span>
+          <h2 class="section__title">Technical Skills</h2>
+        </header>
+
+        <div class="skill-filter reveal" role="group" aria-label="Filter skills">
+          <button class="filter-btn is-active" data-filter="all" aria-pressed="true">All</button>
+          <button class="filter-btn" data-filter="testing" aria-pressed="false">Testing &amp; Automation</button>
+          <button class="filter-btn" data-filter="web" aria-pressed="false">Web &amp; Database</button>
+          <button class="filter-btn" data-filter="tools" aria-pressed="false">Tools</button>
+        </div>
+
+        <div class="skill-groups">
+          <div class="skill-group reveal" data-group="testing">
+            <h3 class="skill-group__title">Testing and Automation</h3>
+            <ul class="chips">
+              <li>Manual Testing</li>
+              <li>Regression Testing</li>
+              <li>Sanity Testing</li>
+              <li>Functional Testing</li>
+              <li>Test Case Documentation</li>
+              <li>AHQ No-Code Automation Platform</li>
+              <li>Automated Test Execution</li>
+              <li>Bug Reporting and Root Cause Analysis</li>
+            </ul>
+          </div>
+
+          <div class="skill-group reveal" data-group="web">
+            <h3 class="skill-group__title">Programming and Web Technologies</h3>
+            <ul class="chips">
+              <li>HTML</li>
+              <li>CSS</li>
+              <li>JavaScript</li>
+              <li>PHP</li>
+            </ul>
+          </div>
+
+          <div class="skill-group reveal" data-group="web">
+            <h3 class="skill-group__title">Database Management</h3>
+            <ul class="chips">
+              <li>MySQL</li>
+            </ul>
+          </div>
+
+          <div class="skill-group reveal" data-group="tools">
+            <h3 class="skill-group__title">Version Control and Deployment</h3>
+            <ul class="chips">
+              <li>GitHub</li>
+            </ul>
+          </div>
+
+          <div class="skill-group reveal" data-group="tools">
+            <h3 class="skill-group__title">Productivity and Documentation Tools</h3>
+            <ul class="chips">
+              <li>Microsoft Excel</li>
+              <li>Microsoft Word</li>
+              <li>Microsoft PowerPoint</li>
+              <li>Google Docs</li>
+            </ul>
+          </div>
+
+          <div class="skill-group reveal" data-group="tools">
+            <h3 class="skill-group__title">Design and Prototyping Tools</h3>
+            <ul class="chips">
+              <li>Canva</li>
+              <li>Figma</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= 5. PROJECTS ================= -->
+    <section class="section" id="projects">
+      <div class="container">
+        <header class="section__head reveal">
+          <span class="section__num">05</span>
+          <h2 class="section__title">Project Experience</h2>
+        </header>
+
+        <div class="card-grid card-grid--2">
+          <article class="project tilt reveal" data-anim="left">
+            <div class="project__top">
+              <span class="project__tag">Project 01 · Academic Thesis</span>
+              <h3 class="project__title">Event Attendance System</h3>
+              <p class="project__role">Role: Sole Developer and Tester</p>
+            </div>
+            <p class="project__overview">
+              Developed an Event Attendance System as an academic thesis project. I independently handled the
+              website development and testing, from designing and implementing its functionalities to verifying
+              that the system worked according to its intended requirements.
+            </p>
+            <h4 class="project__sub">Responsibilities</h4>
+            <ul class="check-list">
+              <li>Independently developed the Event Attendance System website.</li>
+              <li>Designed and implemented the system's user interface and functionalities.</li>
+              <li>Worked on frontend and backend development.</li>
+              <li>Integrated and managed the database using MySQL.</li>
+              <li>Conducted manual testing to verify system functionality.</li>
+              <li>Created and performed test scenarios to validate system behavior.</li>
+              <li>Identified and fixed issues encountered during development and testing.</li>
+              <li>Verified that the system met its intended requirements.</li>
+            </ul>
+            <div class="project__stack">
+              <span class="project__stack-label">Technologies Used</span>
+              <ul class="chips chips--sm">
+                <li>HTML</li><li>CSS</li><li>JavaScript</li><li>PHP</li><li>MySQL</li>
+              </ul>
+            </div>
+          </article>
+
+          <article class="project tilt reveal" data-anim="right">
+            <div class="project__top">
+              <span class="project__tag">Project 02 · Professional QA</span>
+              <h3 class="project__title">AHQ Master Test Script</h3>
+              <p class="project__role">Role: QA Engineer / Test Automation</p>
+            </div>
+            <p class="project__overview">
+              Worked on the creation, execution, and maintenance of Master Test Scripts using AHQ's No-Code
+              Automation Platform. The project involved testing different application modules and
+              functionalities to verify system behavior and ensure application quality.
+            </p>
+            <h4 class="project__sub">Responsibilities</h4>
+            <ul class="check-list">
+              <li>Created automated test scripts for different application modules.</li>
+              <li>Prepared and executed test scenarios to validate application functionality.</li>
+              <li>Performed regression testing to verify that existing functionalities remained stable after application updates.</li>
+              <li>Monitored test execution results and identified failed test scripts.</li>
+              <li>Investigated execution failures and analyzed possible root causes.</li>
+              <li>Documented issues and communicated findings to the QA team and developers.</li>
+              <li>Retested fixes and verified application behavior after updates.</li>
+              <li>Maintained test scripts to ensure their accuracy and reliability.</li>
+            </ul>
+            <div class="project__stack">
+              <span class="project__stack-label">Tools Used</span>
+              <ul class="chips chips--sm">
+                <li>AHQ No-Code Automation Platform</li><li>GitHub</li>
+              </ul>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= 6. AGILE & SCRUM ================= -->
+    <section class="section section--alt" id="agile">
+      <div class="container">
+        <header class="section__head reveal">
+          <span class="section__num">06</span>
+          <h2 class="section__title">Agile and Scrum Experience</h2>
+        </header>
+
+        <div class="split">
+          <p class="lead reveal" data-anim="left">
+            I have experience working in an Agile and Scrum environment, where teamwork, communication,
+            adaptability, and continuous improvement are essential throughout the software development process.
+          </p>
+          <div class="card reveal" data-anim="right">
+            <h3 class="card__title">Knowledge and Experience</h3>
+            <ul class="check-list">
+              <li>Understanding of Agile Software Development Methodology.</li>
+              <li>Familiarity with the Scrum Framework.</li>
+              <li>Collaboration with developers and QA team members.</li>
+              <li>Participation in team discussions and progress updates.</li>
+              <li>Communicating testing progress, blockers, and identified defects.</li>
+              <li>Adapting to changing requirements and project priorities.</li>
+              <li>Supporting continuous testing and quality improvement throughout development cycles.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= 7. PRESENTATIONS & KNOWLEDGE SHARING ================= -->
+    <section class="section" id="knowledge">
+      <div class="container">
+        <header class="section__head reveal">
+          <span class="section__num">07</span>
+          <h2 class="section__title">Technical Presentations &amp; QA Knowledge Sharing</h2>
+        </header>
+
+        <div class="card-grid card-grid--2">
+          <article class="card reveal" data-anim="left">
+            <div class="card__icon">🖥️</div>
+            <h3 class="card__title">Website and Application Demonstrations</h3>
+            <p class="card__text">
+              Experienced in presenting and demonstrating website and application functionalities to team members.
+              This includes explaining system features, demonstrating workflows, discussing module functionalities,
+              and presenting testing results.
+            </p>
+            <h4 class="card__sub">Key Activities</h4>
+            <ul class="check-list">
+              <li>Conducted website and application demonstrations.</li>
+              <li>Presented different system modules and their functionalities.</li>
+              <li>Explained application workflows and features.</li>
+              <li>Demonstrated testing results and discussed identified issues.</li>
+              <li>Communicated technical information clearly during presentations.</li>
+            </ul>
+          </article>
+
+          <article class="card reveal" data-anim="right">
+            <div class="card__icon">📚</div>
+            <h3 class="card__title">QA Learning Sessions and Peer Knowledge Sharing</h3>
+            <p class="card__text">
+              Experienced in preparing and delivering QA learning sessions focused on sharing software testing
+              knowledge, concepts, and best practices with team members.
+            </p>
+            <h4 class="card__sub">Topics and Activities</h4>
+            <ol class="topic-list">
+              <li>Software Development Life Cycle (SDLC)</li>
+              <li>Software Testing Life Cycle (STLC)</li>
+              <li>Software Testing Fundamentals</li>
+              <li>Unit Testing and Different Levels of Testing</li>
+              <li>Manual Testing and Test Case Development</li>
+              <li>Regression and Sanity Testing</li>
+              <li>Agile Methodology and Scrum Framework</li>
+              <li>Defect Reporting and Root Cause Analysis</li>
+              <li>Test Automation Fundamentals</li>
+              <li>QA Peer Learning and Knowledge Sharing</li>
+            </ol>
+          </article>
+        </div>
+
+        <div class="skills-demo reveal" data-anim="zoom">
+          <h3 class="skills-demo__title">Skills Demonstrated</h3>
+          <ul class="chips">
+            <li>Technical Presentation</li>
+            <li>Knowledge Sharing</li>
+            <li>Public Speaking</li>
+            <li>Effective Communication</li>
+            <li>Technical Explanation</li>
+            <li>Team Collaboration</li>
+            <li>Learning Facilitation</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= 8. QA DOCUMENTATION ================= -->
+    <section class="section section--alt" id="deliverables">
+      <div class="container">
+        <header class="section__head reveal">
+          <span class="section__num">08</span>
+          <h2 class="section__title">QA Documentation &amp; Deliverables</h2>
+        </header>
+        <p class="section__intro reveal">
+          I have experience creating, maintaining, and handling different QA documents and testing deliverables, including:
+        </p>
+
+        <ul class="doc-grid">
+          <li class="doc reveal" data-anim="zoom"><span class="doc__icon">📝</span>Test Cases</li>
+          <li class="doc reveal" data-anim="zoom"><span class="doc__icon">🧭</span>Test Scenarios</li>
+          <li class="doc reveal" data-anim="zoom"><span class="doc__icon">📊</span>Test Execution Reports</li>
+          <li class="doc reveal" data-anim="zoom"><span class="doc__icon">🐞</span>Bug Reports and Issue Tickets</li>
+          <li class="doc reveal" data-anim="zoom"><span class="doc__icon">🔎</span>Root Cause Analysis (RCA)</li>
+          <li class="doc reveal" data-anim="zoom"><span class="doc__icon">🔁</span>Regression Testing Results</li>
+          <li class="doc reveal" data-anim="zoom"><span class="doc__icon">✅</span>Sanity Testing Results</li>
+          <li class="doc reveal" data-anim="zoom"><span class="doc__icon">🤖</span>Automated Test Scripts</li>
+          <li class="doc reveal" data-anim="zoom"><span class="doc__icon">📡</span>Test Execution Monitoring Reports</li>
+          <li class="doc reveal" data-anim="zoom"><span class="doc__icon">🛠️</span>Defect Retesting and Verification Results</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ================= 9. SOFT SKILLS ================= -->
+    <section class="section" id="soft-skills">
+      <div class="container">
+        <header class="section__head reveal">
+          <span class="section__num">09</span>
+          <h2 class="section__title">Soft Skills</h2>
+        </header>
+
+        <ul class="soft-grid">
+          <li class="reveal" data-anim="up">Attention to Detail</li>
+          <li class="reveal" data-anim="up">Analytical Thinking</li>
+          <li class="reveal" data-anim="up">Critical Thinking</li>
+          <li class="reveal" data-anim="up">Problem-Solving</li>
+          <li class="reveal" data-anim="up">Effective Communication</li>
+          <li class="reveal" data-anim="up">Team Collaboration</li>
+          <li class="reveal" data-anim="up">Time Management</li>
+          <li class="reveal" data-anim="up">Adaptability</li>
+          <li class="reveal" data-anim="up">Organization and Documentation</li>
+          <li class="reveal" data-anim="up">Multitasking</li>
+          <li class="reveal" data-anim="up">Responsibility and Accountability</li>
+          <li class="reveal" data-anim="up">Willingness to Learn</li>
+          <li class="reveal" data-anim="up">Presentation Skills</li>
+          <li class="reveal" data-anim="up">Knowledge Sharing</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ================= 10. CAREER OBJECTIVE ================= -->
+    <section class="section section--alt" id="objective">
+      <div class="container">
+        <header class="section__head reveal">
+          <span class="section__num">10</span>
+          <h2 class="section__title">Career Objective</h2>
+        </header>
+
+        <blockquote class="objective reveal" data-anim="zoom">
+          <p>
+            To continuously develop my professional career by applying my knowledge and experience in Quality
+            Assurance, software testing, test automation, web development, and administrative support.
+          </p>
+          <p>
+            I aim to contribute to a collaborative and growth-oriented organization by helping improve software
+            quality, identifying and resolving issues, supporting efficient workflows, and delivering accurate and
+            reliable results.
+          </p>
+          <p>
+            I am committed to continuous learning, improving my technical capabilities, and embracing opportunities
+            that will allow me to grow both professionally and personally.
+          </p>
+        </blockquote>
+      </div>
+    </section>
+
+    <!-- ================= 11. CONTACT — reusable "Let's Connect" layout ================= -->
+    <section class="lc" id="contact">
+      <div class="lc__box">
+        <p class="lc__eyebrow">11 — Contact</p>
+        <h2 class="lc__title">Let's <em>Connect</em></h2>
+        <p class="lc__text">I am open to professional opportunities where I can contribute my QA knowledge, technical skills, administrative experience, and passion for continuous improvement.</p>
+
+        <div class="lc__items">
+          <a class="lc-item" href="tel:+639187341007">
+            <span class="lc-item__icon"><i class="fas fa-phone"></i></span>
+            <span><small>Phone</small>09187341007</span>
+          </a>
+          <div class="lc-item lc-item--email">
+            <a class="lc-item__main" href="mailto:Kiaraforcadilla0@gmail.com">
+              <span class="lc-item__icon"><i class="fas fa-envelope"></i></span>
+              <span><small>Email</small><span class="lc-email">Kiaraforcadilla0@gmail.com</span></span>
+            </a>
+            <button class="lc-copy" type="button" aria-label="Copy email address"><i class="far fa-copy"></i></button>
+          </div>
+        </div>
+
+        <div class="lc__social">
+          <a href="https://www.linkedin.com/in/kiara-forcadilla-329b88376/" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+          <a href="https://github.com/kiaraforcadilla-automation13" target="_blank" rel="noopener" aria-label="GitHub"><i class="fa-brands fa-github"></i></a>
+        </div>
+
+        <p class="lc__thanks">Thank you for taking the time to explore my portfolio!</p>
+      </div>
+    </section>
+    <div class="lc-toast" role="status" aria-live="polite"></div>
+
+  </main>
+
+  <footer class="footer">
+    <div class="container footer__inner">
+      <p>&copy; <span id="year"></span> Kiara Forcadilla · QA Engineer | Manual &amp; Automation Testing</p>
+      <a href="#home" class="footer__top">Back to top ↑</a>
+    </div>
+  </footer>
+
+  <button class="to-top" id="toTop" aria-label="Back to top">↑</button>
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <!-- scripts: core first, then independent modules (each isolated by KF.module) -->
+  <script src="assets/js/core.js"></script>
+  <script src="assets/js/theme.js"></script>
+  <script src="assets/js/nav.js"></script>
+  <script src="assets/js/reveal.js"></script>
+  <script src="assets/js/hero.js"></script>
+  <script src="assets/js/interactions.js"></script>
+  <script src="assets/js/motion.js"></script>
+  <script src="assets/js/lets-connect.js"></script>
+  <script src="assets/js/fun-facts.js"></script>
+</body>
+</html>
