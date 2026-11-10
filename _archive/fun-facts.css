@@ -1,0 +1,117 @@
+/* =========================================================
+   fun-facts.css — 💡 "Click me" bulb that travels around the
+   arch-shaped photo frame, plus the fun-fact bubble.
+   The path follows the arch: semicircle on top, straight sides,
+   flat bottom (percentages of the photo box, 4:5 ratio).
+   ========================================================= */
+.portrait__frame { cursor: pointer; }
+.portrait__frame.ff-pop { animation: ffPop .5s cubic-bezier(.2, 1.6, .4, 1); }
+@keyframes ffPop { 40% { transform: scale(1.03); } }
+
+.ff-hint {
+  position: absolute;
+  z-index: 5;
+  left: 50%;
+  top: 0;
+  translate: -50% -50%;
+  display: flex;
+  align-items: center;
+  padding: 4px 11px 4px 4px;
+  border-radius: 999px;
+  white-space: nowrap;
+  font: 800 .74rem/1 "Inter", system-ui, sans-serif;
+  color: #fff;
+  background: linear-gradient(120deg, #6d28d9, #9333ea 55%, #c026d3);
+  box-shadow: 0 10px 24px -10px rgba(124, 58, 237, .8);
+  pointer-events: none;
+  animation: ffTravel 26s linear infinite, ffPulse 2.4s ease-out infinite;
+}
+.portrait.ff-parked .ff-hint { animation-play-state: paused; }   /* stops where it was clicked */
+
+.ff-hint__icon {
+  width: 26px;
+  height: 26px;
+  display: grid;
+  place-items: center;
+  font-size: .9rem;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, .25);
+}
+.ff-hint__icon.is-bump { animation: ffBump .5s cubic-bezier(.2, 1.6, .4, 1); }
+@keyframes ffBump { 40% { transform: scale(1.3) rotate(-10deg); } }
+.ff-hint__label { margin-left: 7px; }
+
+/* travel along the arch outline (clockwise from the top) */
+@keyframes ffTravel {
+  0%    { left: 50%;   top: 0%; }
+  4.8%  { left: 69.1%; top: 3%; }
+  9.6%  { left: 85.4%; top: 11.7%; }
+  14.5% { left: 96.2%; top: 24.7%; }
+  19.3% { left: 100%;  top: 40%; }
+  37.7% { left: 100%;  top: 100%; }
+  62.3% { left: 0%;    top: 100%; }
+  80.7% { left: 0%;    top: 40%; }
+  85.5% { left: 3.8%;  top: 24.7%; }
+  90.4% { left: 14.6%; top: 11.7%; }
+  95.2% { left: 30.9%; top: 3%; }
+  100%  { left: 50%;   top: 0%; }
+}
+@keyframes ffPulse {
+  0%   { box-shadow: 0 10px 24px -10px rgba(124, 58, 237, .8), 0 0 0 0 rgba(168, 85, 247, .5); }
+  70%  { box-shadow: 0 10px 24px -10px rgba(124, 58, 237, .8), 0 0 0 12px rgba(168, 85, 247, 0); }
+  100% { box-shadow: 0 10px 24px -10px rgba(124, 58, 237, .8), 0 0 0 0 rgba(168, 85, 247, 0); }
+}
+
+/* fun-fact bubble above the photo */
+.ff-bubble {
+  position: absolute;
+  z-index: 6;
+  left: 50%;
+  top: -7%;
+  width: max-content;
+  max-width: min(300px, 82vw);
+  padding: 12px 16px;
+  border-radius: 18px;
+  translate: -50% 0;
+  text-align: center;
+  font: 700 .92rem/1.4 "Inter", system-ui, sans-serif;
+  color: #fff;
+  background: linear-gradient(120deg, #6d28d9, #9333ea 55%, #c026d3);
+  box-shadow: 0 18px 40px -16px rgba(124, 58, 237, .8);
+  pointer-events: none;
+  animation: ffIn .55s cubic-bezier(.2, 1.6, .4, 1) both;
+}
+.ff-bubble::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: -7px;
+  width: 14px;
+  height: 14px;
+  margin-left: -7px;
+  background: #9333ea;
+  transform: rotate(45deg);
+  border-radius: 3px;
+}
+.ff-bubble.is-out { animation: ffOut .35s ease forwards; }
+@keyframes ffIn { from { opacity: 0; transform: scale(.4) translateY(20px); } to { opacity: 1; transform: none; } }
+@keyframes ffOut { to { opacity: 0; transform: scale(.8) translateY(-10px); } }
+
+/* sparkle burst */
+.ff-spark {
+  position: fixed;
+  z-index: 130;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  pointer-events: none;
+  animation: ffSpark .75s cubic-bezier(.2, .7, .3, 1) forwards;
+}
+@keyframes ffSpark { to { transform: translate(var(--dx), var(--dy)) scale(.2); opacity: 0; } }
+
+/* calm mode: bulb stays still at the top-right of the arch */
+@media (prefers-reduced-motion: reduce) {
+  .ff-hint { animation: none; left: 85.4%; top: 11.7%; }
+  .ff-bubble, .ff-bubble.is-out, .portrait__frame.ff-pop { animation: none; }
+}
+@media print { .ff-hint, .ff-bubble { display: none !important; } }
